@@ -5,6 +5,17 @@ const authRouter = require("./routes/auth-route")
 const contactRouter = require("./routes/contact-route")
 const connectDB = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
+const cors = require("cors")
+
+// handling CORS policy here
+const corsOptions = {
+    origin : "http://localhost:5173",
+    methods : "GET, POST, PUT, DELETE, PATCH, HEAD",
+    credentials : true,
+}
+
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
 app.use("/", authRouter);
