@@ -10,4 +10,24 @@ const contactForm = async (req, res) => {
     }
 }
 
+
+// get all contacts data
+
+// const getAllContacts = async(req, res) =>{
+//     try {
+//         const contact = await Contact.find();
+//         console.log(contact)
+//         if(!contact || contact.length === 0){
+//             res.status(404).json({message : "No Contacts found"})
+//         }
+//         res.status(200).json(contact)
+//     } catch (error) {
+//         next(error);
+//     }
+// }
+
+
+
+
+
 module.exports = contactForm;

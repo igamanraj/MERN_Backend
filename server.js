@@ -7,10 +7,11 @@ const cors = require("cors");
 const authRouter = require("./routes/auth-route")
 const contactRouter = require("./routes/contact-route")
 const serviceRouter = require("./routes/service-route");
+const adminRouter = require("./routes/admin-route")
 
 // handling CORS policy here
 const corsOptions = {
-    origin : "http://localhost:5173",
+    origin : "http://localhost:5173" || "https://nanotech-pi.vercel.app",
     methods : "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials : true,
 }
@@ -22,6 +23,10 @@ app.use(express.json());
 app.use("/", authRouter);
 app.use("/", contactRouter);
 app.use("/", serviceRouter)
+
+
+// lets define admin route 
+app.use("/admin",adminRouter)
 
 
 app.use(errorMiddleware);
