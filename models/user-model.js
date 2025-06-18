@@ -9,15 +9,15 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        reuired: true
+        required: true
     },
     phone: {
         type: String,
-        reuired: true
+        required: true
     },
     password: {
         type: String,
-        reuired: true
+        required: true
     },
     isAdmin: {
         type: Boolean,
