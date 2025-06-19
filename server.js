@@ -9,9 +9,13 @@ const contactRouter = require("./routes/contact-route")
 const serviceRouter = require("./routes/service-route");
 const adminRouter = require("./routes/admin-route")
 
+
+// Frontend URL
+const FRONTEND_URL = process.env.FRONTEND_URL
+
 // handling CORS policy here
 const corsOptions = {
-    origin : "http://localhost:5173" || "https://nanotech-pi.vercel.app",
+    origin : FRONTEND_URL,
     methods : "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials : true,
 }
