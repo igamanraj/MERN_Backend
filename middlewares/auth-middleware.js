@@ -13,10 +13,15 @@ const authMiddleware = async(req, res, next) => {
     }
 
     const jwtToken = token.replace('Bearer ', "").trim();
-    // console.log("token from auth middleware", jwtToken);
+    //console.log("token from auth middleware", jwtToken);
     
     try {
-        const isVerified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
+        console.log("JWT Secret Key", process.env.JWT_SECRET_KEY);
+        try{
+            var isVerified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
+        }catch(error){
+            console.log("JWT Verification Error", error);
+        }
         console.log(isVerified)
 
         const userData = await User.findOne({email : isVerified.email}).select({password:0})
