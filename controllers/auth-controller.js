@@ -91,11 +91,10 @@ const googleSignIn = async (req, res) => {
         if (!user) {
             // If user does not exist, create a new user
             user = await User.create({
-                username: displayName,
-                email: email,
                 username: displayName || email.split('@')[0], // Use displayName or email prefix as username
-                phone: phone || "Not Provided", // Optional phone number
-                password: "", // Password can be empty for Google Sign-In
+                email: email,
+                phone: phone || "Not Provided",
+                password: "",
                 profilePicture: photoURL,
                 uid: uid
             });
