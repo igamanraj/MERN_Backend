@@ -56,6 +56,9 @@ const userUpdateSchema = z.object({
         .trim()
         .min(10, { message: "Phone must be at least of 10 characters" })
         .max(11, { message: "Phone must not be more than 10 characters" }),
+    isAdmin: z
+        .boolean({ required_error: "Admin status is required" })
+        .optional()
 })
 
 module.exports = {signupSchema, loginSchema, userUpdateSchema};
